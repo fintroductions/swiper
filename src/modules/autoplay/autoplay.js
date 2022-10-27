@@ -36,6 +36,7 @@ export default function Autoplay({ swiper, extendParams, on, emit }) {
     }
     clearTimeout(timeout);
     timeout = nextTick(() => {
+      if (swiper.destroyed) return;
       let autoplayResult;
       if (swiper.params.autoplay.reverseDirection) {
         if (swiper.params.loop) {
